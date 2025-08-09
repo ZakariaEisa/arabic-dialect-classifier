@@ -6,7 +6,7 @@ from peft import PeftModel
 st.set_page_config(page_title="Arabic Dialect Classifier", page_icon="🌍")
 
 # إضافة صورة في الأعلى
-st.image("logo.png", use_container_width=True)  # حط هنا مسار أو رابط الصورة
+st.image("logo.jpeg",  width=150)  # حط هنا مسار أو رابط الصورة
 
 st.title("🌍 Arabic Dialect Classifier")
 
@@ -44,6 +44,7 @@ if st.button("🔍 صنّف اللهجة"):
         st.write(f"**نسبة الثقة:** {score:.2%}")
     else:
         st.warning("⚠️ الرجاء إدخال نص أولاً.")
+
 
 
 
