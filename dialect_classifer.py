@@ -4,7 +4,17 @@ from peft import PeftModel
 
 # إعدادات الصفحة
 st.set_page_config(page_title="Arabic Dialect Classifier", page_icon="🌍")
-st.image("logo.jpeg", use_container_width=True)
+
+# إضافة صورة بحجم طول وعرض مخصص
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="logo.jpeg" style="height:120px; width:auto;">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("🌍 Arabic Dialect Classifier")
 
 # دالة لتحميل الـ pipeline مرة واحدة فقط
@@ -41,6 +51,19 @@ if st.button("🔍 صنّف اللهجة"):
         st.write(f"**نسبة الثقة:** {score:.2%}")
     else:
         st.warning("⚠️ الرجاء إدخال نص أولاً.")
+
+        
+        id2label = {0: "مصري", 1: "خليجي", 2: "شامي", 3: "شمال افريقيا"}
+        label = results[0]['label']
+        score = results[0]['score']
+
+        # استخراج رقم التصنيف
+        label_index = int(label.replace("LABEL_", ""))
+        st.success(f"**اللهجة:** {id2label[label_index]}")
+        st.write(f"**نسبة الثقة:** {score:.2%}")
+    else:
+        st.warning("⚠️ الرجاء إدخال نص أولاً.")
+
 
 
 
