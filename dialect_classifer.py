@@ -4,6 +4,7 @@ from peft import PeftModel
 
 # إعدادات الصفحة
 st.set_page_config(page_title="Arabic Dialect Classifier", page_icon="🌍")
+st.image("logo.jpeg", use_container_width=True)
 st.title("🌍 Arabic Dialect Classifier")
 
 # دالة لتحميل الـ pipeline مرة واحدة فقط
@@ -40,5 +41,6 @@ if st.button("🔍 صنّف اللهجة"):
         st.write(f"**نسبة الثقة:** {score:.2%}")
     else:
         st.warning("⚠️ الرجاء إدخال نص أولاً.")
+
 
 
